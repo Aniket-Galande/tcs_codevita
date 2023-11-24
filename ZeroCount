@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class ZeroCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Reading input values
+        int L = scanner.nextInt();
+        int K = scanner.nextInt();
+
+        // Closing the scanner
+        scanner.close();
+
+        // Finding the length of the longest consecutive zeros
+        int result = findLongestConsecutiveZeros(L, K);
+        System.out.println(result);
+    }
+
+    private static int findLongestConsecutiveZeros(int L, int K) {
+        // If all bits are ones, there is no block of zeros
+        if (K == L) {
+            return 0;
+        }
+
+        // If K is zero, the longest block of zeros is the length of the binary string
+        if (K == 0) {
+            return L;
+        }
+
+        // For other cases, the longest block of zeros is minimized by placing ones in the middle
+        // So, the length of the longest consecutive zeros is K
+        return K;
+    }
+}
